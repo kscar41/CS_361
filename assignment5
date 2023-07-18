@@ -1,0 +1,89 @@
+import tkinter as tk
+from tkinter import IntVar, StringVar, messagebox
+
+root = tk.Tk()
+root.title("All My Books and More")
+
+e = tk.Entry(root, width=35, borderwidth=5,fg="black", bg="white")
+e.grid(row=1, column=0)
+e.insert(0, "Enter Your Book Information: ")
+
+books = tk.Toplevel()
+books.title("Books Read")
+authors = tk.Toplevel()
+authors.title("Authors")
+genres = tk.Toplevel()
+genres.title("Genres")
+
+def addTitle():
+    title = e.get()
+    messagebox.askyesno("warning","Do you want to add this book")
+    bookLabel = tk.Label(books, text=title).pack()
+    # bookLabel.grid(row=2, column=0)
+
+def bttnClear():
+    e.delete(0, tk.END)
+
+def addAuthor():
+    name = e.get()
+    authorLabel = tk.Label(authors, text=name).pack()
+    # authorLabel.grid(row=7, column=0)
+
+def addGenre():
+    types = e.get()
+    authorLabel = tk.Label(genres, text=types).pack()
+    # authorLabel.grid(row=7, column=0)
+
+intro = tk.Label(root, text="Welcome to your personal book log, how would you like to add a book you've read?")
+intro.grid(row=0, column=0)
+
+titleBttn = tk.Button(root, text="By Book Title", command=addTitle)
+titleBttn.grid(row=3, column=0)
+
+authorBttn = tk.Button(root, text="By Authors Name", command=addAuthor)
+authorBttn.grid(row=4, column=0)
+
+genreBttn = tk.Button(root, text="By Genre", command=addGenre)
+genreBttn.grid(row=5, column=0)
+
+clearBttn = tk.Button(root, text="Clear", padx=40, pady=20, command=bttnClear)
+clearBttn.grid(row=6, column=0)
+
+lbl1 = tk.Label(root, text="We have an advanced feature that allows you to leave a review. Would you like to try it out?")
+lbl1.grid(row=10, column=0)
+
+r = IntVar()
+r.get()
+
+tk.Radiobutton(root, text="Yes", variable=r, value=1).grid(row=11, column=0)
+tk.Radiobutton(root, text="No", variable=r, value=2).grid(row=12, column=0)
+
+undoBttn = tk.Button(root, text="Undo")
+undoBttn.grid(row=7, column=0)
+
+redoBttn = tk.Button(root, text="Redo")
+redoBttn.grid(row=8, column=0)
+
+lbl2 = tk.Label(root, text="Our Newest Feature: Find book recommendations based on your preference!")
+lbl2.grid(row=15, column=0)
+
+lbl3 = tk.Label(root, text="How would you like to find some recommended books?")
+lbl3.grid(row=16, column=0)
+
+clicked = StringVar()
+clicked.set("choose option")
+
+drop = tk.OptionMenu(root, clicked, "by author", "by genre", "by best selling")
+drop.grid(row=17, column=0)
+
+lbl4 = tk.Label(root, text="Have a book you'd like to recommend yourself? Well send it to us at bookrecs@email.com and we'll add it to the list!!")
+lbl4.grid(row=18, column=0)
+
+
+bttnQuit = tk.Button(root, text="Exit Book Tracker", command=root.quit)
+bttnQuit.grid(row=20, column=0)
+
+
+
+
+root.mainloop()
