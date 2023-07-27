@@ -64,7 +64,7 @@ undoBttn.grid(row=7, column=0)
 redoBttn = tk.Button(root, text="Redo")
 redoBttn.grid(row=8, column=0)
 
-lbl2 = tk.Label(root, text="Our Newest Feature: Find book recommendations based on your preference!")
+lbl2 = tk.Label(root, text="Our Newest Feature: Find book recommendations based on your favorite author!")
 lbl2.grid(row=15, column=0)
 
 lbl3 = tk.Label(root, text="How would you like to find some recommended books?")
@@ -73,7 +73,7 @@ lbl3.grid(row=16, column=0)
 clicked = StringVar()
 clicked.set("choose option")
 
-drop = tk.OptionMenu(root, clicked, "by author", "by genre", "by best selling")
+drop = tk.OptionMenu(root, clicked, "Yes", "No")
 drop.grid(row=17, column=0)
 
 lbl4 = tk.Label(root, text="Have a book you'd like to recommend yourself? Well send it to us at bookrecs@email.com and we'll add it to the list!!")
