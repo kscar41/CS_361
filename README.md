@@ -10,9 +10,3 @@ How to programmatically RECEIVE data: the microservice will search the database 
             Mileage Performed at: 150000
 
 UML sequence diagram:
-
-client(main) program -> user adds carr entry -> car is added to database.txt
-               -> user adds maintenance work -> work is added to car_log + .txt
-
-microservice program -> user enters car data -> request from car_log.txt -> entry is compared to database.txt -> match -> reads car_log.txt -> returns current data to user                                                                                                          
-                                                                                                              -> no match -> returns "no car found" to user
